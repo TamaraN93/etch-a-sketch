@@ -2,7 +2,7 @@ const container = document.querySelector(".container");
 const rows = document.getElementsByClassName("row");
 const cells = document.getElementsByClassName("cell");
 const clear = document.querySelector(".clear");
-const squares = document.querySelectorAll(".square");
+const square = document.getElementsByClassName("square");
 
 //CREATE GRID
 
@@ -12,7 +12,7 @@ function grid(num) {
             for (let j = 1; j < num+1; j++) {
                 const square = document.createElement("div");
                 square.classList.add("square");
-                square.style = "border: 1px solid black";
+                square.style = "border: 1px solid black; background-color: white";
                 container.appendChild(square);
             }
         }
@@ -29,6 +29,20 @@ function hover() {
 }
 
 hover();
+
+
+
+function clearGrid() {
+    clear.addEventListener("click", (e) => {
+        for (let i = 0; i < square.length; i++) {
+            square[i].style.backgroundColor = "white";
+        }
+    })
+}
+
+clearGrid();
+
+
 
 
 
