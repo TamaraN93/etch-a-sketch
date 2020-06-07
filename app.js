@@ -6,9 +6,17 @@ const generate = document.querySelector(".generate");
 
 //CUSTOM GRID
 
+function custom() {
+    generate.addEventListener("click", function(){
+      container.querySelectorAll(".square").forEach(square => square.remove());
+      size = prompt("Choose a grid size between 4-64");
+      grid(size);
+    });
+  }
+custom();
 //CREATE GRID
 function grid (size) {
-    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+        container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
             const square = document.createElement("div");
@@ -19,13 +27,8 @@ function grid (size) {
     }
     
 }
-
-size = prompt("How many squares wide do you want your grid to be?");
+size = prompt("Choose a grid size between 4-64");
 grid(size);
-
-
-
-        
 
 //HOVER EFFECT
 function hover() {
